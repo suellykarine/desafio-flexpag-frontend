@@ -1,0 +1,66 @@
+<div class="header">
+    <p class="text-center h2">Histórico de cotação</p>
+    <div class="d-flex align-items-center justify-content-around border bg-secondary bg-opacity-25 m-3">
+        <div class="d-flex flex-column">
+            <label> Moeda</label>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Selecione a moeda</mat-label>
+
+                <mat-select [(value)]="moedaSelecionada">
+                    <mat-option *ngFor="let coin of dataCoins" [value]="coin.id">
+                        {{ coin.text }}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div class="d-flex flex-column">
+            <label> Data Inicial</label>
+            <div>
+                <mat-form-field appearance="fill">
+                    <mat-label>Escolha a data</mat-label>
+
+                    <input matInput [matDatepicker]="picker1" [(ngModel)]="dataInicial" />
+                    <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                    <mat-datepicker #picker1></mat-datepicker>
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="d-flex flex-column">
+            <label> Data Final</label>
+            <div>
+                <mat-form-field appearance="fill">
+                    <mat-label>Escolha a data</mat-label>
+
+                    <input matInput [matDatepicker]="picker2" [(ngModel)]="dataFinal" />
+                    <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                    <mat-datepicker #picker2></mat-datepicker>
+                </mat-form-field>
+            </div>
+        </div>
+        <button type="button" class="btn btn-success" (click)="showData()">
+      <i><mat-icon>done_outline</mat-icon></i
+      >Consultar dados
+    </button>
+        <button type="button" class="btn btn-primary" (click)="updateData()">
+      <i><mat-icon>autorenew</mat-icon></i
+      >Atualizar dados
+    </button>
+    </div>
+
+    <div>
+        <table class="table table-striped">
+            <tr>
+                <th>Cotação de compra</th>
+                <th>Cotação de venda</th>
+                <th>Data e hora da cotação</th>
+            </tr>
+
+            <tr *ngFor="let values of result">
+                <td>cotação: {{ values.cotacaoCompra }}</td>
+                <td>{{ values.cotacaoVenda }}</td>
+                <td>{{ values.dataHoraCotacao }}</td>
+            </tr>
+        </table>
+    </div>
+</div>

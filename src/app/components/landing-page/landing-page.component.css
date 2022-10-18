@@ -1,0 +1,10 @@
+.header {
+    background-color: beige;
+}
+
+.title {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: lightgray;
+}
