@@ -2,8 +2,6 @@
     <p class="text-center h2">Histórico de cotação</p>
     <div class="d-flex align-items-center justify-content-around border bg-secondary bg-opacity-25 m-3">
         <div class="d-flex flex-column">
-            <label> Moeda</label>
-
             <mat-form-field appearance="fill">
                 <mat-label>Selecione a moeda</mat-label>
 
@@ -15,10 +13,9 @@
             </mat-form-field>
         </div>
         <div class="d-flex flex-column">
-            <label> Data Inicial</label>
             <div>
                 <mat-form-field appearance="fill">
-                    <mat-label>Escolha a data</mat-label>
+                    <mat-label>Escolha a data inicial</mat-label>
 
                     <input matInput [matDatepicker]="picker1" [(ngModel)]="dataInicial" />
                     <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
@@ -27,10 +24,9 @@
             </div>
         </div>
         <div class="d-flex flex-column">
-            <label> Data Final</label>
             <div>
                 <mat-form-field appearance="fill">
-                    <mat-label>Escolha a data</mat-label>
+                    <mat-label>Escolha a data final</mat-label>
 
                     <input matInput [matDatepicker]="picker2" [(ngModel)]="dataFinal" />
                     <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>

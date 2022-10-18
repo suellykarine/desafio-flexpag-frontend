@@ -13,7 +13,6 @@ interface Coin {
   styleUrls: ['./landing-page.component.css'],
 })
 export class LandingPageComponent implements OnInit {
-  data: any;
   dataCoins: Coin[] = [
     {
       id: 'AUD',
@@ -34,8 +33,6 @@ export class LandingPageComponent implements OnInit {
     },
   ];
 
-  now = moment().format('MM-DD-YYYY');
-
   result: any[] = [];
   moedaSelecionada: string = '';
   dataInicial: string = '';
@@ -43,18 +40,11 @@ export class LandingPageComponent implements OnInit {
   dataInicialFormatada: string = '';
   dataFinalFormatada: string = '';
 
-  displayedColumns: string[] = [
-    'Cotação de compra',
-    'Cotação de venda',
-    'Data e hora da cotação',
-  ];
-
   constructor(private http: HttpClient) {}
 
   carregarDados(): void {
     this.http
       .get(
-        //"https://olinda.bcb.gov.br/olinda/servico/PTAX/versao/v1/odata/CotacaoMoedaPeriodo(moeda=@moeda,dataInicial=@dataInicial,dataFinalCotacao=@dataFinalCotacao)?@moeda='EUR'&@dataInicial='07-06-2022'&@dataFinalCotacao='07-25-2022'&$top=1000&$format=json"
         `https://olinda.bcb.gov.br/olinda/servico/PTAX/versao/v1/odata/CotacaoMoedaPeriodo(moeda=@moeda,dataInicial=@dataInicial,dataFinalCotacao=@dataFinalCotacao)?@moeda='${this.moedaSelecionada}'&@dataInicial='${this.dataInicialFormatada}'&@dataFinalCotacao='${this.dataFinalFormatada}'`
       )
       .subscribe((data: any) => {
