@@ -1,3 +1,3 @@
 # desáfio-flexpag-frontend
 
-## Proheto realizado em Angular e bootstrap
+## Projeto realizado em Angular e bootstrap
